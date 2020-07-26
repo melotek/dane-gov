@@ -10,6 +10,23 @@ const fetcher = (url) =>
     }
   });
 
+export const useGetGlobal = () => {
+  const { data, error, ...rest } = useSWR(
+    "/api/v1",
+    fetcher,
+    {
+      // revalidateOnMount: false,
+      revalidateOnFocus: false,
+      // ...also disable error retry and interval
+    }
+  );
+  return {
+    data,
+    error,
+    loading: !data && error,
+    ...rest,
+  };
+};
 export const useGetLocalInstitutions = () => {
   const { data, error, ...rest } = useSWR(
     "/api/v1/administracja/samorzadowa",

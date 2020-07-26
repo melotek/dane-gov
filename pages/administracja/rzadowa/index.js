@@ -10,6 +10,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import TablePagination from "@material-ui/core/TablePagination";
+import Layout from "../../../components/layout"
 
 
 export default function Home() {
@@ -34,6 +35,8 @@ console.log(data)
       </TableCell>
     ));
   };
+
+
   const renderInstytutions = (data) => {
     return data.map((institution, i) => (
       <TableRow key={i}>
@@ -60,6 +63,8 @@ console.log(data)
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Layout>
+        {loading && <p>Loading data ...</p>}
         {data && (
           <>
             <TableContainer component={Paper}>
@@ -73,6 +78,7 @@ console.log(data)
             </TableContainer>
           </>
         )}
+          </Layout>
       </main>
     </div>
   );

@@ -12,6 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
+import Layout from "../../../components/layout";
 
 export default function Home() {
   const classes = useStyles();
@@ -23,7 +24,6 @@ export default function Home() {
     setInstitutions(data);
   }, [data]);
   console.log(inst);
-
   // const filter = inst.filter((i) => {
   //   return i.attributes.city
   //     .toLowerCase()
@@ -93,7 +93,7 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <Layout>
         {loading && <p>Loading data ...</p>}
         {inst && (
           <>
@@ -108,7 +108,7 @@ export default function Home() {
           </>
         )}
         {error && <div className="alert alert-danger">error</div>}
-      </main>
+      </Layout>
     </div>
   );
 }
@@ -123,5 +123,9 @@ const useStyles = makeStyles({
     "&:nth-child(2)": {
       width: 160,
     },
+  },
+  content: {
+    flexGrow: 1,
+    // padding: theme.spacing(3),
   },
 });
