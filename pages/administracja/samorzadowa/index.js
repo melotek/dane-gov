@@ -13,6 +13,7 @@ import TextField from "@material-ui/core/TextField";
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import Layout from "../../../components/layout";
+import clsx from "clsx";
 
 export default function Home() {
   const classes = useStyles();
@@ -23,12 +24,6 @@ export default function Home() {
   useEffect(() => {
     setInstitutions(data);
   }, [data]);
-  console.log(inst);
-  // const filter = inst.filter((i) => {
-  //   return i.attributes.city
-  //     .toLowerCase()
-  //     .includes(setfilterByCity.toLowerCase());
-  // });
 
   const handleCollapse = async (e) => {
     e.preventDefault();
@@ -55,22 +50,69 @@ export default function Home() {
   const renderInstytutions = (inst) => {
     return inst.map((institution, i) => (
       <TableRow key={i}>
-        <TableCell component="th" scope="row">
+        <TableCell
+          className={clsx(classes.primeCell, classes.colorCell)}
+          component="th"
+          variant="head"
+        >
           {institution.attributes.title}{" "}
           <img src={institution.attributes.iamge_url} alt="" />
         </TableCell>
-        <TableCell align="right">{institution.attributes.tel}</TableCell>
-        <TableCell align="right">
+        <TableCell
+          className={clsx(classes.primeCell, classes.colorCell)}
+          variant="body"
+          align="right"
+        >
+          {institution.attributes.tel}
+        </TableCell>
+        <TableCell
+          className={clsx(classes.lastCell, classes.colorCell)}
+          align="right"
+          sizeSmall
+          variant="body"
+        >
           {institution.attributes.postal_code}
         </TableCell>
-        <TableCell align="right">
-          {institution.attributes.street_type} {institution.attributes.street}
+        <TableCell
+          align="right"
+          variant="body"
+          sizeSmall
+          className={clsx(classes.primeCell, classes.colorCell)}
+        >
+          {institution.attributes.street_type}
+          {institution.attributes.street}
           {institution.attributes.street_number}
         </TableCell>
-        <TableCell align="right">{institution.attributes.city}</TableCell>
-        <TableCell align="right">{institution.attributes.email}</TableCell>
-        <TableCell align="right">{institution.attributes.website}</TableCell>
-        <TableCell align="right">
+        <TableCell
+          align="right"
+          variant="body"
+          sizeSmall
+          className={clsx(classes.lastCell, classes.colorCell)}
+        >
+          {institution.attributes.city}
+        </TableCell>
+        <TableCell
+          align="right"
+          variant="body"
+          sizeSmall
+          className={clsx(classes.complimentCell, classes.colorCell)}
+        >
+          {institution.attributes.email}
+        </TableCell>
+        <TableCell
+          align="right"
+          variant="body"
+          sizeSmall
+          className={clsx(classes.complimentCell, classes.colorCell)}
+        >
+          {institution.attributes.website}
+        </TableCell>
+        <TableCell
+          align="right"
+          variant="body"
+          sizeSmall
+          className={clsx(classes.lastCell, classes.colorCell)}
+        >
           <Link
             as={`/uslugi/${institution.id},${institution.attributes.slug}`}
             href="/uslugi/[params]"
@@ -99,7 +141,7 @@ export default function Home() {
           <>
             <TableContainer component={Paper}>
               <Table aria-label="simple table">
-                <TableHead>
+                <TableHead fixedHeader={true}>
                   <TableRow>{renderHeader(tableHeader)}</TableRow>
                 </TableHead>
                 <TableBody>{renderInstytutions(inst)}</TableBody>
@@ -123,9 +165,27 @@ const useStyles = makeStyles({
     "&:nth-child(2)": {
       width: 160,
     },
+    color: "white",
+    fontWeight: 700,
+    fontSize: "1rem",
+    "@media (min-width:600px)": {
+      fontSize: "1.225rem",
+    },
   },
-  content: {
-    flexGrow: 1,
-    // padding: theme.spacing(3),
+  // primeCell: {
+  //   width: 200,
+  // },
+  // complimentCell: {
+  //   maxWidth: 130,
+  // },
+  lastCell: {
+    width: 50,
+  },
+  colorCell: {
+    color: "rgb(218,219,222)",
+    fontSize: "1rem",
+    "@media (min-width:600px)": {
+      fontSize: "1.185rem",
+    },
   },
 });

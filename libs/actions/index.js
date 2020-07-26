@@ -90,3 +90,31 @@ export const useGetInstitutionsByCity = (url) => {
     ...rest,
   };
 };
+export const useGetMedicalBenefitsByName= (url) => {
+  const { data, error, ...rest } = useSWR(url, fetcher, {
+    // revalidateOnMount: false,
+    revalidateOnFocus: false,
+
+    // ...also disable error retry and interval
+  });
+  return {
+    data,
+    error,
+    loading: !data && error,
+    ...rest,
+  };
+};
+export const useGetMedicalBenefits= () => {
+  const { data, error, ...rest } = useSWR("/api/v1/terminy_leczenia/", fetcher, {
+    // revalidateOnMount: false,
+    revalidateOnFocus: false,
+
+    // ...also disable error retry and interval
+  });
+  return {
+    data,
+    error,
+    loading: !data && error,
+    ...rest,
+  };
+};

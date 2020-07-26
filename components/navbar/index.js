@@ -24,6 +24,7 @@ const NavBar = (props) => {
       query: { city: `${filterByCity}` },
     });
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
   };

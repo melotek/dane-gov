@@ -49,6 +49,16 @@ const theme = createMuiTheme({
         backgroundColor: "rgb(192,199,222)",
       },
     },
+    MuiTableRow: {
+      root: {
+        "&:nth-child(odd)": {
+          backgroundColor: "rgb(46,56,88)",
+        },
+        "&:nth-child(even)": {
+          backgroundColor: "rgb(30,37,58)",
+        },
+      },
+    },
   },
 });
 theme.typography.overline = {

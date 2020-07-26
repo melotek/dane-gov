@@ -18,6 +18,7 @@ export default async (req, res) => {
         const totalState = stateRes.data.meta.count;
         const data = [
             {text: "Administracja samorządowa",  count: totalLocal, link: "/administracja/samorzadowa"},
+
             {text: "Administracja rządowa", count: totalState,  link: "/administracja/rzadowa"},
         
         ]

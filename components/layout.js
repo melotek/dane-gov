@@ -26,17 +26,7 @@ const Layout = (props) => {
             [classes.contentShift]: drawerOpen,
           })}
         >
-          {/* <Box
-          backgroundColor="rgb(30,37,58)"
-          style={{
-            backgroundImage: `linear-gradient(rgba(37,45,71, 0.96), rgba(37,45,71, 0.96)), url('/background.jpg')`,
-            backgroundPosition: "0px 0px, 50% 50%",
-            backgroundSize: "auto, cover",
-            height: "100vh",
-          }}
-        > */}
           {children}
-          {/* </Box> */}
         </main>
       </Box>
       <footer></footer>
