@@ -1,18 +1,16 @@
 import axios from "axios";
-import _ from "lodash";
+const convert = require("xml-js");
+
 export default async (req, res) => {
   try {
     const globalRes = await axios.get(
-      "https://api.dane.gov.pl/institutions/?type=local",
-      {
-        params: {
-          per_page: 3,
-        },
-      }
+      "https://api.nfz.gov.pl/app-itl-api/queues?benefit=udar"
     );
-    let data = globalRes.data.data;
-    console.log(data);
+    const data = JSON.parse(
+      convert.xml2json(globalRes.data, { compact: true })
+    );
     res.status(200).json(data);
+    console.log(globalRes);
   } catch (e) {
     console.log(e);
     res.status(e.status || 400).json({ message: "api error" });

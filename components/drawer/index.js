@@ -92,36 +92,36 @@ const SideBar = (props) => {
             <List>
               <Box pb={1}>
                 <svg
-                  class="brand-img"
+                  className="brand-img"
                   aria-labelledby="logo-header-title"
                   preserveAspectRatio="xMinYMid meet"
                   version="1.1"
                   viewBox="0 0 150 50"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <title class="ng-tns-c1-0" id="logo-header-title">
+                  <title className="ng-tns-c1-0" id="logo-header-title">
                     Otwarte Dane
                   </title>
                   <text
                     fill="rgb(218,219,222)"
-                    class="brand-img__text"
+                    className="brand-img__text"
                     x="0"
                     y="0"
                   >
-                    <tspan class="ng-tns-c1-0" x="75" y="25">
+                    <tspan className="ng-tns-c1-0" x="75" y="25">
                       OTWARTE
                     </tspan>
-                    <tspan class="ng-tns-c1-0" x="75" y="45">
+                    <tspan className="ng-tns-c1-0" x="75" y="45">
                       DANE
                     </tspan>
                   </text>
-                  <g class="brand-img__do" fill="rgb(102,132,227)">
+                  <g className="brand-img__do" fill="rgb(102,132,227)">
                     <path
-                      class="ng-tns-c1-0"
+                      className="ng-tns-c1-0"
                       d="M62.6,5.3H70L58.9,46h-7.4C51.5,46,62.6,5.3,62.6,5.3z"
                     ></path>
                     <path
-                      class="ng-tns-c1-0"
+                      className="ng-tns-c1-0"
                       d="M25.7-0.2C25.7-0.2,25.6-0.2,25.7-0.2c-13.8,0-25,11.2-25,25s11.2,25,25,25s25-11.2,25-25l0,0
                                 C50.6,10.9,39.5-0.2,25.7-0.2L25.7-0.2L25.7-0.2z M28.4,40.5H13.6V10.9h14.8c0.1,0,0.3,0,0.5,0c8.2,0,14.8,6.6,14.8,14.8
                                 s-6.6,14.8-14.8,14.8C28.7,40.5,28.6,40.5,28.4,40.5L28.4,40.5L28.4,40.5z"

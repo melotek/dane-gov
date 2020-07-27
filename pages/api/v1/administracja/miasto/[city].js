@@ -2,7 +2,7 @@ import axios from "axios"
 
 export default async (req, res) => {
     try {
-        const globalRes = await axios.get(`https://api.dane.gov.pl/institutions/??city=${req.query.city}`,{
+        const globalRes = await axios.get(`https://api.dane.gov.pl/institutions/?city=${req.query.city}`,{
         params: {
          per_page: 100,   
         }}

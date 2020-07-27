@@ -14,11 +14,12 @@ import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import Layout from "../../../components/layout";
 import clsx from "clsx";
+import _ from "lodash";
 
 export default function Home() {
   const classes = useStyles();
   const { data, error, loading } = useGetLocalInstitutions();
-  const [links, setLinks] = useState([]);
+  // const [links, setLinks] = useState([]);
   const [inst, setInstitutions] = useState(null);
 
   useEffect(() => {
@@ -39,6 +40,58 @@ export default function Home() {
     "Strona internetowa",
     "Przydatne informacje",
   ];
+
+  // let attributes = _.cloneDeep(
+  //   data.administracja.institutions.type((m) =>
+  //     _.omit(m.attributes, [
+  //       "self",
+  //       "notes",
+  //       "modified",
+  //       "datasets_count",
+  //       "flat_number",
+  //       "epuap",
+  //       "created",
+  //       "slug",
+  //       "sources",
+  //       "resources_count",
+  //       "image_url",
+  //       "abbreviation",
+  //       "regon",
+  //       "description",
+  //       "fax",
+  //       "institution_type",
+  //       "street_type",
+  //     ])
+  //   )
+  // );
+
+  // let links = data.map((m) => m.links);
+  // let newData = attributes.map((item, i) => Object.assign({}, item, links[i]));
+
+  // let complete_array = newData.map(function (obj) {
+  //   return Object.keys(obj)
+  //     .sort()
+  //     .map(function (key) {
+  //       return obj[key];
+  //     });
+  // });
+  // const removed_address = complete_array.map((i) => {
+  //   return i.slice(4, 6).join(" ");
+  // });
+  // let with_out_address = _.remove(complete_array, function (adres) {
+  //   return (
+  //     adres ==
+  //     complete_array.map((i) => {
+  //       return i[3];
+  //     })
+  //   );
+  // });
+
+  // const address = complete_array.map((i) => {
+  //   return i.slice(4, 5).join(" ");
+  // });
+
+  // console.log(data);
 
   const renderHeader = (tableHeader) => {
     return tableHeader.map((head, i) => (
@@ -141,7 +194,7 @@ export default function Home() {
           <>
             <TableContainer component={Paper}>
               <Table aria-label="simple table">
-                <TableHead fixedHeader={true}>
+                <TableHead>
                   <TableRow>{renderHeader(tableHeader)}</TableRow>
                 </TableHead>
                 <TableBody>{renderInstytutions(inst)}</TableBody>

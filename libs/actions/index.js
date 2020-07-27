@@ -105,7 +105,7 @@ export const useGetMedicalBenefitsByName= (url) => {
   };
 };
 export const useGetMedicalBenefits= () => {
-  const { data, error, ...rest } = useSWR("/api/v1/terminy_leczenia/", fetcher, {
+  const { data, error, ...rest } = useSWR("/api/v1/terminyleczenia", fetcher, {
     // revalidateOnMount: false,
     revalidateOnFocus: false,
 

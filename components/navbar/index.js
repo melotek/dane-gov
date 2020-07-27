@@ -42,7 +42,7 @@ const NavBar = (props) => {
         >
           <MenuIcon style={{ color: "rgb(218,219,222)" }} />
         </IconButton>
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}>
           <Box
             style={{
               height: "calc(100% + 3px)",
@@ -82,8 +82,7 @@ const NavBar = (props) => {
               <SearchIcon />
             </IconButton>
           </Box>
-          {/* <input type="submit" value="Wyślij" /> */}
-        </form>
+        </form> */}
       </Box>
     </Container>
   );
