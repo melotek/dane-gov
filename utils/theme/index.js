@@ -49,8 +49,10 @@ const theme = createMuiTheme({
         backgroundColor: "rgb(192,199,222)",
       },
     },
-    MuiTableHead: {
-      background: "red",
+    MUIDataTableBodyCell: {
+      root: {
+        color: "white",
+      },
     },
     MuiTableRow: {
       root: {

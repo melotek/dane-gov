@@ -1,12 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useGetLocalInstitutions } from "../../../libs/actions/";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
+
+import MUIDataTable from "mui-datatables";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -30,158 +26,84 @@ export default function Home() {
     e.preventDefault();
     await setUrl(e.currentTarget.value);
   };
-  const tableHeader = [
-    "Nazwa",
-    "Telefon",
-    "Kod pocztowy",
-    "Adres",
-    "Miasto",
-    "Email",
-    "Strona internetowa",
-    "Przydatne informacje",
+  // const tableHeader = [
+  //   "Nazwa",
+  //   "Telefon",
+  //   "Kod pocztowy",
+  //   "Adres",
+  //   "Miasto",
+  //   "Email",
+  //   "Strona internetowa",
+  //   "Przydatne informacje",
+  // ];
+  const [tableData, setTableData] = useState([]);
+  useEffect(() => {
+    setTableData(data);
+  }, [data]);
+  console.log(tableData);
+
+  const columns = [
+    {
+      name: "title",
+      label: "Name",
+      options: {
+        filter: true,
+      },
+    },
+    {
+      name: "city",
+      label: "city",
+      options: {
+        filter: true,
+      },
+    },
+    {
+      name: "postal_code",
+      label: "postal_code",
+      options: {
+        filter: true,
+      },
+    },
+    {
+      name: "street_type",
+      label: "street_type",
+    },
+    {
+      name: "street",
+      label: "street",
+    },
+    {
+      name: "street_number",
+      label: "street_number",
+    },
+    {
+      name: "tel",
+      label: "tel",
+      options: {
+        filter: true,
+      },
+    },
+    {
+      name: "email",
+      label: "email",
+    },
+    {
+      name: "website",
+      label: "website",
+    },
+    {
+      name: "self",
+      label: "self",
+    },
   ];
 
-  // let attributes = _.cloneDeep(
-  //   data.administracja.institutions.type((m) =>
-  //     _.omit(m.attributes, [
-  //       "self",
-  //       "notes",
-  //       "modified",
-  //       "datasets_count",
-  //       "flat_number",
-  //       "epuap",
-  //       "created",
-  //       "slug",
-  //       "sources",
-  //       "resources_count",
-  //       "image_url",
-  //       "abbreviation",
-  //       "regon",
-  //       "description",
-  //       "fax",
-  //       "institution_type",
-  //       "street_type",
-  //     ])
-  //   )
-  // );
-
-  // let links = data.map((m) => m.links);
-  // let newData = attributes.map((item, i) => Object.assign({}, item, links[i]));
-
-  // let complete_array = newData.map(function (obj) {
-  //   return Object.keys(obj)
-  //     .sort()
-  //     .map(function (key) {
-  //       return obj[key];
-  //     });
-  // });
-  // const removed_address = complete_array.map((i) => {
-  //   return i.slice(4, 6).join(" ");
-  // });
-  // let with_out_address = _.remove(complete_array, function (adres) {
-  //   return (
-  //     adres ==
-  //     complete_array.map((i) => {
-  //       return i[3];
-  //     })
-  //   );
-  // });
-
-  // const address = complete_array.map((i) => {
-  //   return i.slice(4, 5).join(" ");
-  // });
-
-  // console.log(data);
-
-  const renderHeader = (tableHeader) => {
-    return tableHeader.map((head, i) => (
-      <TableCell className={classes.head} key={i}>
-        {head}
-      </TableCell>
-    ));
+  const options = {
+    filter: true,
+    filterType: "dropdown",
+    responsive: "vertical",
+    enableNestedDataAccess: ".", // allows nested data separated by "." (see column names and the data structure above)
   };
-  const renderInstytutions = (inst) => {
-    return inst.map((institution, i) => (
-      <TableRow key={i}>
-        <TableCell
-          className={clsx(classes.primeCell, classes.colorCell)}
-          component="th"
-          variant="head"
-        >
-          {institution.attributes.title}{" "}
-          <img src={institution.attributes.iamge_url} alt="" />
-        </TableCell>
-        <TableCell
-          className={clsx(classes.primeCell, classes.colorCell)}
-          variant="body"
-          align="right"
-        >
-          {institution.attributes.tel}
-        </TableCell>
-        <TableCell
-          className={clsx(classes.lastCell, classes.colorCell)}
-          align="right"
-          sizeSmall
-          variant="body"
-        >
-          {institution.attributes.postal_code}
-        </TableCell>
-        <TableCell
-          align="right"
-          variant="body"
-          sizeSmall
-          className={clsx(classes.primeCell, classes.colorCell)}
-        >
-          {institution.attributes.street_type}
-          {institution.attributes.street}
-          {institution.attributes.street_number}
-        </TableCell>
-        <TableCell
-          align="right"
-          variant="body"
-          sizeSmall
-          className={clsx(classes.lastCell, classes.colorCell)}
-        >
-          {institution.attributes.city}
-        </TableCell>
-        <TableCell
-          align="right"
-          variant="body"
-          sizeSmall
-          className={clsx(classes.complimentCell, classes.colorCell)}
-        >
-          {institution.attributes.email}
-        </TableCell>
-        <TableCell
-          align="right"
-          variant="body"
-          sizeSmall
-          className={clsx(classes.complimentCell, classes.colorCell)}
-        >
-          {institution.attributes.website}
-        </TableCell>
-        <TableCell
-          align="right"
-          variant="body"
-          sizeSmall
-          className={clsx(classes.lastCell, classes.colorCell)}
-        >
-          <Link
-            as={`/uslugi/${institution.id},${institution.attributes.slug}`}
-            href="/uslugi/[params]"
-          >
-            <a>
-              <img
-                src="/verified-database-symbol-for-interface.svg"
-                alt="data interface"
-                style={{ width: 25, height: "auto" }}
-              />
-            </a>
-          </Link>
-        </TableCell>
-      </TableRow>
-    ));
-  };
+
   return (
     <div className="container">
       <Head>
@@ -190,16 +112,14 @@ export default function Home() {
       </Head>
       <Layout>
         {loading && <p>Loading data ...</p>}
-        {inst && (
+        {data && (
           <>
-            <TableContainer component={Paper}>
-              <Table aria-label="simple table">
-                <TableHead>
-                  <TableRow>{renderHeader(tableHeader)}</TableRow>
-                </TableHead>
-                <TableBody>{renderInstytutions(inst)}</TableBody>
-              </Table>
-            </TableContainer>
+            <MUIDataTable
+              title={"ACME Employee list"}
+              data={tableData}
+              columns={columns}
+              options={options}
+            />
           </>
         )}
         {error && <div className="alert alert-danger">error</div>}
