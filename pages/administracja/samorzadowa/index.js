@@ -67,6 +67,9 @@ export default function Home() {
     {
       name: "street_type",
       label: "street_type",
+      options: {
+        filter: false,
+      },
     },
     {
       name: "street",
@@ -75,6 +78,9 @@ export default function Home() {
     {
       name: "street_number",
       label: "street_number",
+      options: {
+        filter: false,
+      },
     },
     {
       name: "tel",
@@ -86,14 +92,23 @@ export default function Home() {
     {
       name: "email",
       label: "email",
+      options: {
+        filter: false,
+      },
     },
     {
       name: "website",
       label: "website",
+      options: {
+        filter: false,
+      },
     },
     {
       name: "self",
       label: "self",
+      options: {
+        filter: false,
+      },
     },
   ];
 
@@ -115,7 +130,7 @@ export default function Home() {
         {data && (
           <>
             <MUIDataTable
-              title={"ACME Employee list"}
+              title={"Kontakt i link do danych"}
               data={tableData}
               columns={columns}
               options={options}
