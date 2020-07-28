@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   pageContainer: {
     backgroundColor: theme.palette.primary.main,
     padding: 0,
-    width: "100%",
+   
   },
   content: {
     flexGrow: 1,

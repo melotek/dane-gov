@@ -28,6 +28,36 @@ const theme = createMuiTheme({
   },
 
   overrides: {
+    MuiTypography: {
+      h1: {
+        color: "rgb(192,199,222)",
+        fontSize: "calc(60px + (26 - 14) * ((100vw - 300px) / (1600 - 300)))",
+      },
+      h2: {
+        color: "rgb(192,199,222)",
+        fontSize: "calc(48px + (26 - 14) * ((100vw - 300px) / (1600 - 300)))",
+      },
+      h3: {
+        color: "rgb(192,199,222)",
+        fontSize: "calc(36px + (26 - 14) * ((100vw - 300px) / (1600 - 300)))",
+      },
+      h4: {
+        color: "rgb(218,219,222)",
+        fontSize: "calc(24px + (26 - 14) * ((100vw - 300px) / (1600 - 300)))",
+      },
+      h5: {
+        color: "rgb(218,219,222)",
+        fontSize: "calc(18px + (26 - 14) * ((100vw - 300px) / (1600 - 300)))",
+      },
+      h6: {
+        color: "rgb(218,219,222)",
+        fontSize: "calc(15px + (26 - 14) * ((100vw - 300px) / (1600 - 300)))",
+      },
+      paragraph: {
+        color: "white",
+        fontSize: "calc(12px + (26 - 14) * ((100vw - 300px) / (1600 - 300)))",
+      },
+    },
     MuiOutlinedInput: {
       root: {
         "& $notchedOutline": {
