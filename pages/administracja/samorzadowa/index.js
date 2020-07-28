@@ -15,7 +15,6 @@ import _ from "lodash";
 export default function Home() {
   const classes = useStyles();
   const { data, error, loading } = useGetLocalInstitutions();
-  // const [links, setLinks] = useState([]);
   const [inst, setInstitutions] = useState(null);
 
   useEffect(() => {
@@ -107,7 +106,26 @@ export default function Home() {
       name: "self",
       label: "self",
       options: {
-        filter: false,
+        customBodyRender: (self) => {
+          const spliteded = _.split(self, "/");
+          const splited = _.slice(
+            spliteded,
+            [spliteded.length - 1],
+            [spliteded.length]
+          );
+          return (
+            <Link as={`/uslugi/${splited}`} href="/uslugi/[params]">
+              <a style={{ color: "white" }}>
+                link do otwartych danych podmiotu{" "}
+                <img
+                  src="/verified-database-symbol-for-interface.svg"
+                  alt="data interface"
+                  style={{ width: 25, height: "auto" }}
+                />
+              </a>
+            </Link>
+          );
+        },
       },
     },
   ];

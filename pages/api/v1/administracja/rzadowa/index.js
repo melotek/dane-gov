@@ -1,4 +1,5 @@
 import axios from "axios"
+import { feedArray } from "../../../../../utils/controlers";
 
 export default async (req, res) => {
     try {
@@ -7,19 +8,10 @@ export default async (req, res) => {
          per_page: 100,   
         }}
         );
-        const data = globalRes.data.data;
-        //  Ewentualnie z paginacją ale jest tak mało podmiotów że paginacja będzie na froncie
-        // const total = globalRes.data.meta.count;
-        // const data = []
-        // data.push(...data, institutions, total)
-        res.status(200).json(data);
-    //    console.log(data)
-    //    console.log(total)
-        
-    } catch (e) {
-        console.log(e)
-        res.status(e.status || 400).json({message: "api error"})
-    }
-}
-
-
+    let data = globalRes.data.data;
+    res.status(200).json(feedArray(data));
+  } catch (e) {
+    console.log(e);
+    res.status(e.status || 400).json({ message: "api error" });
+  }
+};

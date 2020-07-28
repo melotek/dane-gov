@@ -54,6 +54,10 @@ const theme = createMuiTheme({
         color: "white",
       },
     },
+    MuiTable: {
+      borderColor: "rgb(102,132,227)",
+    },
+
     MuiTableRow: {
       root: {
         "&:nth-child(odd)": {
@@ -110,7 +114,7 @@ const theme = createMuiTheme({
       },
     },
     Mui: {
-      focused: { color: "white" },
+      "&$focused": { color: "white" },
     },
     MuiInputBase: {
       input: {
