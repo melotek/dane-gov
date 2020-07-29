@@ -19,8 +19,7 @@ const Uslugi = () => {
       />
     ));
   };
-  // const att = data.attributes
-  // console.log(att)
+
   return <div>{data && <div>{renderInstytutions(data)}</div>}</div>;
 };
 

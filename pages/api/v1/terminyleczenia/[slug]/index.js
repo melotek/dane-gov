@@ -1,5 +1,6 @@
 import axios from "axios";
 import _ from "lodash";
+import { feedArray } from "../../../../../utils/controlers";
 export default async (req, res) => {
   const Provinces = [
     { symbol: "01", name: "dolnośląskie" },
@@ -33,10 +34,9 @@ export default async (req, res) => {
           accept: "application/json",
         },
         params: {
-          page: 2,
-          limit: 1,
+          page: 1,
+          limit: 25,
           format: "json",
-          case: 1,
           province: `${provinceSymbol.symbol}`,
           benefitForChildren: false,
           benefit: `${benefit}`,
@@ -45,12 +45,10 @@ export default async (req, res) => {
     );
 
     const data = globalRes.data;
-    let att = _.cloneDeep(_.map(data.data, "attributes"));
-    let datas = _.cloneDeep(_.map(att, "dates"));
-    let datases = _.cloneDeep(_.map(datas, ["applicable"]));
-    let date = _.cloneDeep(_.map(datas, "date"));
-    console.log(date);
-    res.status(200).json(data);
+
+    res
+      .status(200)
+      .json(feedArray(data, { includeMedicalBenefitAttributes: true }));
   } catch (e) {
     console.log(e);
     res.status(e.status || 400).json({ message: "api error" });
