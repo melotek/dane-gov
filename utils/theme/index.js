@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createMuiTheme, fade } from "@material-ui/core/styles";
 
 // Create a theme instance.
 const theme = createMuiTheme({
@@ -182,6 +182,53 @@ const theme = createMuiTheme({
         color: "rgb(218,219,222)",
         "&$checked": {
           color: "rgb(218,219,222)  !important",
+        },
+      },
+    },
+    //searchBar
+    MuiTextField: {
+      root: {
+        border: "1px solid #e2e2e1",
+        overflow: "hidden",
+        borderRadius: 4,
+        backgroundColor: "rgb(192,199,222)",
+        transition: ["border-color", "box-shadow"],
+        "&:hover": {
+          backgroundColor: "rgb(102,132,227)",
+        },
+        "&$focused": {
+          backgroundColor: "rgb(218,219,222)",
+          boxShadow: `${fade("rgb(102,132,227)", 0.25)} 0 0 0 2px`,
+          borderColor: "rgb(192,199,222)",
+        },
+      },
+    },
+    MuiInputLabel: {
+      root: {
+        color: "rgb(30,37,58)",
+        fontWeight: 600,
+      },
+    },
+    MuiInputBase: {
+      input: {
+        color: "rgb(30,37,58)",
+        fontWeight: 600,
+      },
+    },
+    MuiFormControl: {
+      root: {
+        border: "1px solid #e2e2e1",
+        overflow: "hidden",
+        borderRadius: 4,
+        backgroundColor: "rgb(192,199,222)",
+        transition: ["border-color", "box-shadow"],
+        "&:hover": {
+          backgroundColor: "rgb(102,132,227)",
+        },
+        "&$focused": {
+          backgroundColor: "rgb(218,219,222)",
+          boxShadow: `${fade("rgb(102,132,227)", 0.25)} 0 0 0 2px`,
+          borderColor: "rgb(192,199,222)",
         },
       },
     },

@@ -64,7 +64,6 @@ const RenderDataLinks = () => {
 const SideBar = (props) => {
   const { data } = props;
 
-  console.log(data);
   const classes = useStyles();
   const theme = useTheme();
   const router = useRouter();

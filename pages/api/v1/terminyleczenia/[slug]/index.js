@@ -45,7 +45,11 @@ export default async (req, res) => {
     );
 
     const data = globalRes.data;
-    console.log(data);
+    let att = _.cloneDeep(_.map(data.data, "attributes"));
+    let datas = _.cloneDeep(_.map(att, "dates"));
+    let datases = _.cloneDeep(_.map(datas, ["applicable"]));
+    let date = _.cloneDeep(_.map(datas, "date"));
+    console.log(date);
     res.status(200).json(data);
   } catch (e) {
     console.log(e);

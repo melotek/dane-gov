@@ -10,7 +10,7 @@ const { data, error, loading } = useGetMedicalBenefitsByName(
   );
     return (
         <div>
-            
+            {/* {data.attr} */}
         </div>
     )
 }

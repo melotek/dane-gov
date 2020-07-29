@@ -9,7 +9,7 @@ export default async (req, res) => {
         }}
         );
     let data = globalRes.data.data;
-    res.status(200).json(feedArray(data));
+    res.status(200).json(feedArray(data, {includeCityAttributes: true}));
   } catch (e) {
     console.log(e);
     res.status(e.status || 400).json({ message: "api error" });
