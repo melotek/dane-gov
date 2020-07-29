@@ -91,43 +91,7 @@ const SideBar = (props) => {
           <Box mt={4} mb={6}>
             <List>
               <Box pb={1}>
-                <svg
-                  className="brand-img"
-                  aria-labelledby="logo-header-title"
-                  preserveAspectRatio="xMinYMid meet"
-                  version="1.1"
-                  viewBox="0 0 150 50"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title className="ng-tns-c1-0" id="logo-header-title">
-                    Otwarte Dane
-                  </title>
-                  <text
-                    fill="rgb(218,219,222)"
-                    className="brand-img__text"
-                    x="0"
-                    y="0"
-                  >
-                    <tspan className="ng-tns-c1-0" x="75" y="25">
-                      OTWARTE
-                    </tspan>
-                    <tspan className="ng-tns-c1-0" x="75" y="45">
-                      DANE
-                    </tspan>
-                  </text>
-                  <g className="brand-img__do" fill="rgb(102,132,227)">
-                    <path
-                      className="ng-tns-c1-0"
-                      d="M62.6,5.3H70L58.9,46h-7.4C51.5,46,62.6,5.3,62.6,5.3z"
-                    ></path>
-                    <path
-                      className="ng-tns-c1-0"
-                      d="M25.7-0.2C25.7-0.2,25.6-0.2,25.7-0.2c-13.8,0-25,11.2-25,25s11.2,25,25,25s25-11.2,25-25l0,0
-                                C50.6,10.9,39.5-0.2,25.7-0.2L25.7-0.2L25.7-0.2z M28.4,40.5H13.6V10.9h14.8c0.1,0,0.3,0,0.5,0c8.2,0,14.8,6.6,14.8,14.8
-                                s-6.6,14.8-14.8,14.8C28.7,40.5,28.6,40.5,28.4,40.5L28.4,40.5L28.4,40.5z"
-                    ></path>
-                  </g>
-                </svg>
+               
               </Box>
               <Box my={2}>
                 <Typography variant="h6" display="block" gutterBottom>
@@ -138,14 +102,13 @@ const SideBar = (props) => {
             </List>
           </Box>
           <Divider />
-          <img src="/logo-nik.svg" alt="" />
           <List></List>
         </Box>
       </Drawer>
     </>
   );
 };
-const drawerWidth = 360;
+const drawerWidth = 300;
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {

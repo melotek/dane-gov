@@ -15,11 +15,11 @@ import _ from "lodash";
 export default function Home() {
   const classes = useStyles();
   const { data, error, loading } = useGetLocalInstitutions();
-  const [inst, setInstitutions] = useState(null);
+  // const [inst, setInstitutions] = useState(null);
 
-  useEffect(() => {
-    setInstitutions(data);
-  }, [data]);
+  // useEffect(() => {
+  //   setInstitutions(data);
+  // }, [data]);
 
   const handleCollapse = async (e) => {
     e.preventDefault();
@@ -39,7 +39,6 @@ export default function Home() {
   useEffect(() => {
     setTableData(data);
   }, [data]);
-  console.log(tableData);
 
   const columns = [
     {

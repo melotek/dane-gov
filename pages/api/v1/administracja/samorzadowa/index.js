@@ -11,7 +11,6 @@ export default async (req, res) => {
       }
     );
     let data = globalRes.data.data;
-
     res.status(200).json(feedArray(data));
   } catch (e) {
     console.log(e);

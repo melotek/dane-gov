@@ -98,8 +98,8 @@ const useStyles = makeStyles((theme) => ({
   },
   navContainer: {
     position: "relative",
-    left: 360,
-    width: "calc(100vw - 380px)",
+    left: 300,
+    width: "calc(100vw - 300px)",
   },
   MuiFormLabelRoot: {
     color: `${theme.palette.primary.primaryText}`,

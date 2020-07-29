@@ -10,7 +10,6 @@ const Uslugi = () => {
     router.query.params ? `/api/v1/uslugi/${router.query.params}` : null
   );
 
-  console.log(data);
 
   const renderInstytutions = (data) => {
     return data.map((att, i) => (

@@ -1,14 +1,13 @@
 import React from 'react'
-import {useGetMedicalBenefitsByName} from "../../libs/actions/"
+import {useGetMedicalBenefitsByName} from "../../../libs/actions/"
 import { withRouter } from "next/router";
 import { useRouter } from "next/router";
 
-const Miasto = () => {
+const Index = () => {
 const router = useRouter()
 const { data, error, loading } = useGetMedicalBenefitsByName(
-    router.query.slug ? `/api/v1/terminy_leczenia/${router.query.slug}` : null
+    router.query.slug ? `/api/v1/terminyleczenia/${router.query.slug}` : null
   );
-  console.log(data)
     return (
         <div>
             
@@ -16,4 +15,4 @@ const { data, error, loading } = useGetMedicalBenefitsByName(
     )
 }
 
-export default withRouter(Miasto)
+export default Index

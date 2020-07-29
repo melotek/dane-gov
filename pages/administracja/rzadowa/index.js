@@ -39,7 +39,6 @@ export default function Home() {
   useEffect(() => {
     setTableData(data);
   }, [data]);
-  console.log(tableData);
 
   const columns = [
     {

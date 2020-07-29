@@ -14,7 +14,7 @@ const Home = () => {
          <Box  display="flex"
          flexWrap="wrap"
         > 
-            <CardItem background={`linear-gradient(to right, #2dc1c9 0%, #2194c1 30%, #252d47 100%)`}/>
+            <CardItem  title="Terminy leczenia NFZ" href="/terminyleczenia" background={`linear-gradient(to right, #2dc1c9 0%, #2194c1 30%, #252d47 100%)`}/>
             <CardItem background={`linear-gradient(to right, #e47c64 0%, #e36481 30%, #252d47 100%)`}/>
             <CardItem background={`linear-gradient(to right, #ffba00 0%, #fc9244 30%, #252d47 100%)`}/>
             <CardItem background={`linear-gradient(to right, #7a79fe 0%, #a758f5 30%, #252d47 100%)`}/>
