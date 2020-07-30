@@ -12,6 +12,9 @@ const theme = createMuiTheme({
       primaryText: "rgb(218,219,222)",
       secondaryText: "rgb(192,199,222)",
     },
+    secondary: {
+      main: "rgb(102,132,227)",
+    },
   },
   typography: {
     fontFamily: [

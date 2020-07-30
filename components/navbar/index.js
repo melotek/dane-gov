@@ -38,7 +38,7 @@ const NavBar = (props) => {
           aria-label="open drawer"
           onClick={props.toggleOnHandler}
           edge="start"
-          style={{ padding: "12px 24px;" }}
+          style={{ padding: "12px 24px" }}
         >
           <MenuIcon style={{ color: "rgb(218,219,222)" }} />
         </IconButton>

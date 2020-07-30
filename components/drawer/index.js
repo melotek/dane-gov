@@ -14,6 +14,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import SubjectIcon from "@material-ui/icons/Subject";
 import { merge } from "lodash";
 import { useRouter } from "next/router";
+import SearchBar from "components/searchbar";
 
 const RenderDataLinks = () => {
   const classes = useStyles();
@@ -22,12 +23,12 @@ const RenderDataLinks = () => {
   const Links = [
     {
       text: "Administracja rządowa",
-      link: "/administracja/rzadowa",
+      link: "state",
       count: 93,
     },
     {
       text: "Administracja samorządowa",
-      link: "/administracja/samorzadowa",
+      link: "local",
       count: 45,
     },
   ];
@@ -42,7 +43,7 @@ const RenderDataLinks = () => {
         >
           {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
 
-          <Link href={i.link}>
+          <Link as={`/${i.link}`} href="/[administracja]">
             <a className={classes.link}>
               {" "}
               <Typography variant="overline" display="block" gutterBottom>
@@ -80,19 +81,11 @@ const SideBar = (props) => {
           paper: classes.drawerPaper,
         }}
       >
-        <div className={classes.drawerHeader}>
-          {/* <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton> */}
-        </div>
         <Divider />
         <Box width="100%" alignSelf="center">
-          <Box mt={4} mb={6}>
+          <Box mt={4} mb={4}>
             <List>
-              <Box pb={1}>
-               
-              </Box>
-              <Box my={2}>
+              <Box ml={2} my={2}>
                 <Typography variant="h6" display="block" gutterBottom>
                   Administracja
                 </Typography>
@@ -101,7 +94,22 @@ const SideBar = (props) => {
             </List>
           </Box>
           <Divider />
-          <List></List>
+          <Box mt={4} mb={4}>
+            <Box ml={2} my={2}>
+              <Typography variant="h6" display="block" gutterBottom>
+                Terminy NFZ
+              </Typography>
+            </Box>
+            <Box ml={2}>
+              <SearchBar
+                display="flex"
+                flexDirection="column"
+                width="calc(100% - 16px)"
+                height="280px"
+                justifyContent="space-between"
+              />
+            </Box>
+          </Box>
         </Box>
       </Drawer>
     </>

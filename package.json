@@ -24,9 +24,9 @@
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "swagger-client": "^3.10.12",
     "swr": "^0.2.3",
     "uuid": "^8.2.0",
     "xml-js": "^1.6.11"
-  }
+  },
+  "devDependencies": {}
 }

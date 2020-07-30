@@ -58,6 +58,25 @@ export const useGetUslugi = (url) => {
   };
 };
 
+export const useGetInstitutions = (url) => {
+  const { data, error, ...rest } = useSWR(
+    url,
+    fetcher,
+    {
+      // revalidateOnMount: false,
+      revalidateOnFocus: false,
+
+      // ...also disable error retry and interval
+    }
+  );
+  return {
+    data,
+    error,
+    loading: !data && error,
+    ...rest,
+  };
+};
+
 export const useGetStateInstitutions = () => {
   const { data, error, ...rest } = useSWR(
     "/api/v1/administracja/rzadowa",
@@ -118,3 +137,17 @@ export const useGetMedicalBenefits= (url) => {
     ...rest,
   };
 };
+// export const useGetLandMarked= (url) => {
+//   const { data, error, ...rest } = useSWR("/api/v1/rejestrzabytkow/", fetcher, {
+//     // revalidateOnMount: false,
+//     revalidateOnFocus: false,
+
+//     // ...also disable error retry and interval
+//   });
+//   return {
+//     data,
+//     error,
+//     loading: !data && error,
+//     ...rest,
+//   };
+// };
